@@ -1,7 +1,3 @@
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-// // import { getStorage } from 'https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js';
-// import { getStorage } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
-// console.log(window)
 const axios = window.axios;
 const firebaseConfig = {
   apiKey: "AIzaSyAeaHc0agHVEGNC24xd8CnZWxD-IibrE7U",
@@ -20,7 +16,7 @@ const chatFireBase=firebase.initializeApp(firebaseConfig);
 const username = document.getElementsByClassName("prof-name")[0].innerText;
 document.cookie = `username=${username}`;
 if(username==='admin'){
-  const temp=document.querySelector('#AdminRequests').href="http://127.0.0.1:5000/static/admin.html";
+  const temp=document.querySelector('#AdminRequests').href="./static/admin.html";
 }
 document.getElementById("NewsFeed").classList.add("active");
 var folder = document.getElementsByClassName("active")[0].innerText;
