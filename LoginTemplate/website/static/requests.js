@@ -36,6 +36,7 @@ let fetchAddRequests=async function(){
   arr=[];
   let ref= db.collection(`${folder}`)
   await ref.get().then((querySnapshot) => {
+    let i=0
     querySnapshot.forEach((doc) => {
         let obj={
           'id':doc.id,
@@ -44,11 +45,12 @@ let fetchAddRequests=async function(){
         }
         arr.push(obj);
         let element= document.createElement('div');
-        element.innerHTML=`<p>Document Id : ${obj['id']}</p>
+        element.innerHTML=`<p id='id${i}'>Document Id : ${obj['id']}</p>
                           <p>Username : ${obj['username']}</p>
                           <p>Club : ${obj['clubs']}</p>
-                          <button class="approve-add-request">Approve</button> <button>Disapprove</button>`
+                          <button id='btn${i}' class="approve-add-request">Approve</button> <button>Disapprove</button>`
         document.querySelector('#add-requests').append(element);
+        i++;
         // console.log(`${doc.id} => ${doc.data()}`);
     });
     console.log(arr);
@@ -61,11 +63,29 @@ let addFunction = async function(){
   await fetchAddRequests();
   //approving add request
   console.log(approveAddRequestArray);
+  //iterating
   approveAddRequestArray.forEach(element => {
     element.addEventListener('click',()=>{
       console.log('inside add request')
       element.parentNode.classList.add('inactive')
-      // todo : add approved to id
+      let obj=arr[element.id.substring(3)];
+      console.log(obj);
+      db.collection("Final").doc(obj['id']).set({
+        username : obj['username'],
+        clubs : obj['clubs'],
+        state : "approved",
+      })
+      .then(() => {
+          console.log("Document successfully written!");
+          db.collection("Add").doc(obj['id']).delete().then(() => {
+            console.log("Document successfully deleted!");
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+      })
+      .catch((error) => {
+          console.error("Error writing document: ", error);
+      });
     });
 
   });

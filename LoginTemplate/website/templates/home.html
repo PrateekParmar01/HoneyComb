@@ -38,7 +38,7 @@
             </a> -->
           </div>
           <h3 id="top">Be Sweet Like Honey</h3>
-          <a href="http://127.0.0.1:5000/logout" class="btn-log">
+          <a href="./logout" class="btn-log">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
           </a>
         </div>
@@ -52,20 +52,20 @@
         </div>
         <!--menu item-->
         <ul class="sidee">
-          <li>
-            <a href="#" class="active" id = "NewsFeed">
+          <li  name="news">
+            <a class='list-items' href="#" class="active" id = "NewsFeed" name="news">
               <span class="icon"><i class="fa-solid fa-desktop"></i></span>
               <span class="item">NewsFeed</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Alumni">
+          <li  name="alumini">
+            <a class='list-items' href="#" id="Alumni" name="alumini">
               <span class="icon"><i class="fa-solid fa-people-arrows-left-right"></i></span>
               <span class="item">Alumini</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="CP_Wing">
+          <li  name="CP">
+            <a class='list-items' href="#" id="CP_Wing" name="CP">
               <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
                 <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
               </svg></span>
@@ -73,82 +73,87 @@
               <span class="item">CP_Wing</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="SoftDev">
+          <li  name="SoftDev">
+            <a class='list-items' href="#" id="SoftDev" name="SoftDev">
               <span class="icon"><i class="fa-solid fa-code"></i></span>
               <span class="item">SoftDev</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="InfoSec">
+          <li  name="InfoSec">
+            <a class='list-items' href="#" id="InfoSec" name="InfoSec">
               <span class="icon"><i class="fa-brands fa-linux"></i></span>
               <span class="item">InfoSec</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="ML_Wing">
+          <li  name="ML">
+            <a class='list-items' href="#" id="ML_Wing" name="ML">
               <span class="icon"><i class="fas fa-cog"></i></span>
               <span class="item">ML_Wing</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="UI_UX">
+          <li  name="UI/UX">
+            <a class='list-items' href="#" id="UI_UX" name="UI/UX">
               <span class="icon"><i class="bi bi-person-bounding-box"></i></span>
               <span class="item">UI_UX</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Crotonia">
+          <li  name="Crotonia">
+            <a class='list-items' href="#" id="Crotonia" name="Crotonia">
               <span class="icon"><i class="fas fa-pen-fancy"></i></span>
               <span class="item">Crotonia</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Goonj">
+          <li  name="Goonj">
+            <a class='list-items' href="#" id="Goonj" name="Goonj">
               <span class="icon"><i class="fa-solid fa-masks-theater"></i></span>
               <span class="item">Goonj</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="AfterDark">
+          <li  name="ECell">
+            <a class='list-items' href="#" id="ECell" name="ECell">
+              <span class="icon"><i class="bi bi-currency-dollar"></i></span>
+              <span class="item">E-Cell</span>
+            </a>
+          </li>
+          <li  name="Afterdark">
+            <a class='list-items' href="#" id="Afterdark" name="Afterdark">
               <span class="icon"><i class="fa-solid fa-camera"></i></span>
               <span class="item">AfterDark</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Zephyr">
+          <li  name="Zephyr">
+            <a class='list-items' href="#" id="Zephyr" name="Zephyr">
               <span class="icon"><i class="fa-solid fa-z"></i></span>
               <span class="item">Zephyr</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Estrella">
+          <li  name="Estrella">
+            <a class='list-items' href="#" id="Estrella" name="Estrella">
               <span class="icon"><i class="fas fa-guitar"></i></i></span>
               <span class="item">Estrella</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Eifer">
+          <li  name="Eifer">
+            <a class='list-items' href="#" id="Eifer" name="Eifer">
               <span class="icon"><i class="gg-dribbble"></i></span>
               <span class="item">Eifer</span>
             </a>
           </li>
-          <li>
-            <a href="#" id="Students">
+          <li  name="Students">
+            <a class='list-items' href="#" id="Students" name="Students">
               <span class="icon"><i class="fa-solid fa-people-arrows-left-right"></i></span>
               <span class="item">Students</span>
             </a>
           </li>
-          <li>
-            <li>
-              <div class="Admin">
-                <a href="{{ url_for('static',filename='client.html')}}" id="AdminRequests">
-                  <span class="icon"><i class="fa-solid fa-people-arrows-left-right"></i></span>
-                  <span class="item">Requests</span>
-                </a>
-              </div>
-            </li>
-            <li>
+          <li >
+            <div class="Admin">
+              <a href="{{ url_for('static',filename='client.html')}}" id="AdminRequests">
+                <span class="icon"><i class="fa-solid fa-people-arrows-left-right"></i></span>
+                <span class="item">Requests</span>
+              </a>
+            </div>
+          </li>
+
         </ul>
 
       </div>
@@ -173,12 +178,14 @@
     </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="{{ url_for('static',filename='home.js') }}" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js" ></script>
+    <script src="{{ url_for('static',filename='clubs.js') }}" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.js" integrity="sha512-3n3LJuXN2CDTF/87biXx288uEtlZpSCnhw9UGWwU1fReJCqM8vqzbMHHptgh6CCAZg+KSYVciVkivW5twgqpfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ url_for('static',filename='home.js') }}" type="module"></script>
 
   </body>
 </html>
