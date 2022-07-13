@@ -18,201 +18,27 @@ document.cookie = `username=${username}`;
 if(username==='admin'){
   const temp=document.querySelector('#AdminRequests').href="./static/admin.html";
 }
+
+//query selections
+
+
 document.getElementById("NewsFeed").classList.add("active");
 var folder = document.getElementsByClassName("active")[0].innerText;
 fetchMessages();
 console.log(folder);
 
-document.getElementById("Alumni").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Alumni").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("NewsFeed").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("NewsFeed").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("CP_Wing").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("CP_Wing").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  console.log("inside cpwing");
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages()
-});
-
-document.getElementById("SoftDev").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("SoftDev").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("InfoSec").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("InfoSec").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("ML_Wing").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("ML_Wing").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("UI_UX").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("UI_UX").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages();
-});
-
-document.getElementById("Crotonia").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Crotonia").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages()
-});
-
-document.getElementById("Goonj").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Goonj").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-  fetchMessages()
-});
-
-document.getElementById("Afterdark").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Afterdark").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-
-  fetchMessages();
-});
-
-document.getElementById("Estrella").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Estrella").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-
-
-  fetchMessages();
-});
-
-document.getElementById("Eifer").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Eifer").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-
-
-  fetchMessages();
-});
-
-document.getElementById("Students").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Students").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-
-
-  fetchMessages();
-});
-
-document.getElementById("Zephyr").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  document.getElementById("Zephyr").classList.add("active");
-
-  document.getElementById("messages").remove();
-  document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
-
-  folder = document.getElementsByClassName("active")[0].innerText;
-
-
-  fetchMessages();
+let listItems = document.querySelectorAll('.list-items');
+listItems.forEach(element => {
+  element.addEventListener("click", function (e){
+    e.preventDefault();
+    folder = document.getElementsByClassName("active")[0].innerText;
+    document.getElementsByClassName("active")[0].classList.remove("active");
+    element.classList.add("active");
+    document.getElementById("messages").remove();
+    document.getElementById("wapisaao").innerHTML = "<ul id='messages'></ul>";
+    folder = document.getElementsByClassName("active")[0].innerText;
+    fetchMessages();
+  })
 });
 
 // ye submit ke liye
