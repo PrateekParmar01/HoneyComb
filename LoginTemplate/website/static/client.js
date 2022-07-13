@@ -1,8 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
-import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+// import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+// // https://firebase.google.com/docs/web/setup#available-libraries
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyArAd2bmZvSI9DjNA56xFwNivNWm3dTz2M",
   authDomain: "honeycomb-8451f.firebaseapp.com",
@@ -13,9 +13,10 @@ const firebaseConfig = {
   measurementId: "G-2XNP6083TK",
 };
 
-// Initialize Firebase and Firestore
+// Initialize Firebase ,Firestore and storeage
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const storage =firebse.storage();
 
 //selecting cookies
 function getCookie(cname) {
@@ -58,5 +59,9 @@ document.querySelector('#send').addEventListener('click', () =>{
         console.error("Error adding document: ", error);
     });
 
-})
+});
 
+document.querySelector('#submit-image').addEventListener('click',(e)=>{
+  e.preventDefault();
+  
+})
