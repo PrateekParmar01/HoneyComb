@@ -21,7 +21,6 @@ if(username==='admin'){
 
 //query selections
 
-
 document.getElementById("NewsFeed").classList.add("active");
 var folder = document.getElementsByClassName("active")[0].innerText;
 fetchMessages();

@@ -1,8 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
-import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+// import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+// // https://firebase.google.com/docs/web/setup#available-libraries
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyArAd2bmZvSI9DjNA56xFwNivNWm3dTz2M",
   authDomain: "honeycomb-8451f.firebaseapp.com",
@@ -13,9 +13,10 @@ const firebaseConfig = {
   measurementId: "G-2XNP6083TK",
 };
 
-// Initialize Firebase and Firestore
+// Initialize Firebase ,Firestore and storeage
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const storage =firebase.storage();
 
 //selecting cookies
 function getCookie(cname) {
@@ -58,5 +59,42 @@ document.querySelector('#send').addEventListener('click', () =>{
         console.error("Error adding document: ", error);
     });
 
-})
+});
 
+document.querySelector('#submit-image').addEventListener('click',(e)=>{
+  e.preventDefault();
+  let ref=storage.ref();
+  let file=document.querySelector('#image').files[0].name;
+  let uname=getCookie('username');
+  let achievements=ref.child('Achievements').child(uname).child(file);
+  let description=document.querySelector('#description').value;
+  console.log(description);
+  achievements.put(file).then(
+    () =>{
+      alert("File uploaded");
+      achievements.getDownloadURL()
+      .then(
+        (url) =>{
+          console.log('inside download url')
+          db.collection("Achievements").add(
+            {
+              username:uname,
+              link:url,
+              description:description
+            }
+          )
+          .then(
+            (docRef) =>{
+              console.log("Link reference to firebase added successfully");
+              console.log(docRef.id);
+            }
+          )
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+        }
+      )
+      // console.log(achievements.getDownloadURL().getResult());
+    }
+  )
+})
