@@ -16,7 +16,7 @@ const firebaseConfig = {
 // Initialize Firebase ,Firestore and storeage
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const storage =firebse.storage();
+const storage =firebase.storage();
 
 //selecting cookies
 function getCookie(cname) {
@@ -63,5 +63,38 @@ document.querySelector('#send').addEventListener('click', () =>{
 
 document.querySelector('#submit-image').addEventListener('click',(e)=>{
   e.preventDefault();
-  
+  let ref=storage.ref();
+  let file=document.querySelector('#image').files[0].name;
+  let uname=getCookie('username');
+  let achievements=ref.child('Achievements').child(uname).child(file);
+  let description=document.querySelector('#description').value;
+  console.log(description);
+  achievements.put(file).then(
+    () =>{
+      alert("File uploaded");
+      achievements.getDownloadURL()
+      .then(
+        (url) =>{
+          console.log('inside download url')
+          db.collection("Achievements").add(
+            {
+              username:uname,
+              link:url,
+              description:description
+            }
+          )
+          .then(
+            (docRef) =>{
+              console.log("Link reference to firebase added successfully");
+              console.log(docRef.id);
+            }
+          )
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+        }
+      )
+      // console.log(achievements.getDownloadURL().getResult());
+    }
+  )
 })

@@ -20,11 +20,14 @@ const db = firebase.firestore();
 
 // query selection
 const actionAdd= document.querySelector('#add');
-const actionRemove= document.querySelector('#remove')
+const actionRemove= document.querySelector('#remove');
+const actionAchieve=document.querySelector('#achieve');
 const selectClubs= document.querySelector('#select-clubs');
 const removeClubs=document.querySelector('#remove-clubs');
+const selectAchievements=document.querySelector('#Achievements');
 let approveAddRequestArray=document.querySelectorAll('.approve-add-request');
-let approveRemoveRequestArray=document.querySelector('.approve-remove-request');
+let approveRemoveRequestArray=document.querySelectorAll('.approve-remove-request');
+
 let folder='Add';
 
 //storing requests
@@ -34,7 +37,7 @@ let arr=[];
 //add
 let fetchAddRequests=async function(){
   arr=[];
-  let ref= db.collection(`${folder}`)
+  let ref= db.collection(`${folder}`);
   await ref.get().then((querySnapshot) => {
     let i=0
     querySnapshot.forEach((doc) => {
@@ -102,6 +105,7 @@ actionAdd.addEventListener('click',()=>{
 
   //making add active
   selectClubs.classList.remove('inactive');
+  selectAchievements.classList.add('inactive');
   removeClubs.classList.add('inactive');
 
   //fetching add requests
@@ -117,6 +121,7 @@ actionRemove.addEventListener('click',()=>{
 
   //making remove active
   selectClubs.classList.add('inactive');
+  selectAchievements.classList.add('inactive');
   removeClubs.classList.remove('inactive');
 
   //fetching remove requests
@@ -124,5 +129,51 @@ actionRemove.addEventListener('click',()=>{
 
 function fetchRemoveRequests(){
   arr=[];
-
+  let ref= db.collection(`${folder}`);
 }
+
+let fetchAchievements= async function(){
+  arr=[];
+  let ref= db.collection(`${folder}`);
+  await ref.get().then((querySnapshot) => {
+
+    querySnapshot.forEach(doc => {
+        let obj={
+          id:doc.id,
+          username : doc.data().username,
+          link:doc.data().link,
+          description:doc.data().description,
+          state:'false'
+        }
+        console.log(obj);
+        if(!doc.state){
+          arr.push(obj);
+        }
+    });
+  });
+}
+
+let displayAchievements = async function(){
+  let achievementDiv=document.querySelector('#Achievements');
+  arr.forEach(async data => {
+    let element=document.createElement('div');
+
+    element.innerHTML=`<div>
+                        <p>username:${data['username']}</p>
+                        <p>Achievement:<a href='${data.link}'>link</a></p>
+                        <p>Description:${data.description}</p>
+                        <button>Approve</button><button>Disapprove</button>
+                      </div>`
+    achievementDiv.append(element);
+  });
+}
+
+actionAchieve.addEventListener('click',async ()=>{
+  folder='Achievements';
+  // selectClubs.classList.contains()
+  selectClubs.classList.add('inactive');
+  removeClubs.classList.add('inactive');
+  selectAchievements.classList.remove('inactive');
+  await fetchAchievements();
+  displayAchievements();
+});
