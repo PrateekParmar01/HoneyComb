@@ -65,11 +65,12 @@ document.querySelector('#submit-image').addEventListener('click',(e)=>{
   e.preventDefault();
   let ref=storage.ref();
   let file=document.querySelector('#image').files[0].name;
+  const metadata = { contentType: file.type };
   let uname=getCookie('username');
   let achievements=ref.child('Achievements').child(uname).child(file);
   let description=document.querySelector('#description').value;
   console.log(description);
-  achievements.put(file).then(
+  achievements.put(file,metadata).then(
     () =>{
       alert("File uploaded");
       achievements.getDownloadURL()
