@@ -107,7 +107,10 @@ document
           var flag = 0;
           // isCode yaha hai
           let isCode=0;
+          let isLink=0
           if (moderationJSON.link.matches.length > 0) {
+            isLink=1;
+            isCode=0;
             if (message.includes("https://pastebin.com/")) {
               isCode = 1;
               let pastebinCode = message.substring(21);
@@ -123,7 +126,8 @@ document
                 username,
                 message,
                 flag,
-                isCode
+                isCode,
+                isLink
               });
           }
         })
@@ -352,16 +356,22 @@ function fetchMessages(){
     const snap = snapshot.val();
     console.log("fetching messages")
     if (snap.flag == 0) {
-      if(snap.isCode==0){
+      if(snap.isLink==0){
         const message = `<li class=${snap.username==username ? "sent" : "recieved"}><span><b>${snap.username} : <b></span>${snap.message}</li>`;
         document.getElementById("messages").innerHTML += message;
       }
       else{
-        console.log("trying to fetch code")
-        let pastebinCode=snap.message.substring(21);
-        console.log(pastebinCode);
-        const message = `<li class=${snap.username==username ? "sent" : "recieved"}><span><b>${snap.username} : </b></span>${snap.message}<iframe src="https://pastebin.com/embed_iframe/${pastebinCode}?theme=dark" style="border:none;width:100%;"></iframe></li>`;
-        document.getElementById("messages").innerHTML += message;
+        if(snap.isCode==1){
+          console.log("trying to fetch code")
+          let pastebinCode=snap.message.substring(21);
+          console.log(pastebinCode);
+          const message = `<li class=${snap.username==username ? "sent" : "recieved"}><span><b>${snap.username} : </b></span><a href="${snap.message}">${snap.message}</a><iframe src="https://pastebin.com/embed_iframe/${pastebinCode}?theme=dark" style="border:none;width:100%;"></iframe></li>`;
+          document.getElementById("messages").innerHTML += message;
+        }
+        else{
+          const message = `<li class=${snap.username==username ? "sent" : "recieved"}><span><b>${snap.username} : <b></span><a href="${snap.message}">${snap.message}</a></li>`;
+          document.getElementById("messages").innerHTML += message;
+        }
       }
     } else if (snap.flag == 1) {
       const message = `<li class=${snap.username==username ? "sent" : "recieved"}><span><b>${snap.username} : </b></span><img src="${snap.url}"></img></li>`;
