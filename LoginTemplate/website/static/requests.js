@@ -48,10 +48,10 @@ let fetchAddRequests=async function(){
         }
         arr.push(obj);
         let element= document.createElement('div');
-        element.innerHTML=`<p id='id${i}'>Document Id : ${obj['id']}</p>
+        element.innerHTML=`<div class="add-request"><p id='id${i}'>Document Id : ${obj['id']}</p>
                           <p>Username : ${obj['username']}</p>
                           <p>Club : ${obj['clubs']}</p>
-                          <button id='btn${i}' class="approve-add-request">Approve</button> <button>Disapprove</button>`
+                          <button id='btn${i}' class="approve-add-request">Approve</button> <button class="disapprove-request">Disapprove</button></div>`
         document.querySelector('#add-requests').append(element);
         i++;
         // console.log(`${doc.id} => ${doc.data()}`);
@@ -158,7 +158,7 @@ let displayAchievements = async function(){
   arr.forEach(async data => {
     let element=document.createElement('div');
 
-    element.innerHTML=`<div>
+    element.innerHTML=`<div class="Achievements01">
                         <p>username:${data['username']}</p>
                         <p>Achievement:<a href='${data.link}'>link</a></p>
                         <p>Description:${data.description}</p>

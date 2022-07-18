@@ -1,3 +1,77 @@
+body
+{
+    background-image: url("bg.jpeg");
+    background-size: cover;
+    color: aliceblue;
+    font-size: 20px;
+}
 .inactive{
     display:none;
 }
+.flex-cont
+{
+    text-align: center;
+}
+.btn-admin
+{
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+  margin: auto;
+  border: 2px solid;
+  background: aliceblue;
+  color: #5C527F;
+  margin-top: 10px;
+}
+.approve-add-request, .disapprove-request
+{
+    cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  padding:7px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+  margin: auto;
+  border: 2px solid;
+  background: aliceblue;
+  color: #5C527F;
+  margin-top: 10px;
+}
+.achievements01 button
+{
+    cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+  margin: auto;
+  border: 2px solid;
+  background: aliceblue;
+  color: #5C527F;
+  margin-top: 10px;
+}
+.add-request
+{
+    background-color:#4d3769;
+    padding:10px;
+    margin:10px;
+    
+}
+
+
