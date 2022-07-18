@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-
+    <div class="flex-cont">
         <p>Requests</p>
         <p>
-            Action:
-            <button id="add">Add</button>
-            <button id="remove">Remove</button>
-            <button id="achieve">Achievements</button>
+            <div style="color: aliceblue; font-size: 25px;">Action</div>
+            <button id="add" class="btn-admin">Add</button>
+            <button id="remove" class="btn-admin">Remove</button>
+            <button id="achieve" class="btn-admin">Achievements</button>
         </p>
         <div id="select-clubs" >
             <div id="add-requests"></div>
@@ -23,7 +23,6 @@
             This is remove-clubs
         </div>
         <div id="Achievements">
-            
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

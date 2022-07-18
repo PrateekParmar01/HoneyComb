@@ -4,48 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="client.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}">
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <title>Requests</title>
 </head>
 <body>
-    <h2>Post your requests here</h2>
-    <p>Select the clubs you want to apply for:</p>
-    <h3>Cultural:</h3>
-    <input class="checklist" type="checkbox" id="Afterdark" name="Afterdark" value="Afterdark">
-    <label for="Afterdark">Afterdark</label>
-    <input class="checklist" type="checkbox" id="Crotonia" name="Crotonia" value="Crotonia">
-    <label for="Crotonia">Crotonia</label>
-    <input class="checklist" type="checkbox" id="Goonj" name="Goonj" value="Goonj">
-    <label for="Goonj">Goonj</label>
-    <input class="checklist" type="checkbox" id="Estrella" name="Estrella" value="Estrella">
-    <label for="Estrella">Estrella</label>
-    <input class="checklist" type="checkbox" id="Zephyr" name="Zephyr" value="Zephyr">
-    <label for="Zephyr">Zephyr</label>
-    <input class="checklist" type="checkbox" id="Eifer" name="Eifer" value="Eifer">
-    <label for="Eifer">Eifer</label>
-    <input class="checklist" type="checkbox" id="ECell" name="ECell" value="ECell">
-    <label for="Eifer">ECell</label>
-    <h3>Technical:</h3>
-    <input class="checklist" type="checkbox" id="Competitive Programming" name="CP" value="Competitive Programming">
-    <label for="CP">Competitive Programming</label>
-    <input class="checklist" type="checkbox" id="Machine Learning" name="ML" value="Machine Learning">
-    <label for="ML">Machine Learning</label>
-    <input class="checklist" type="checkbox" id="SoftDev" name="SoftDev" value="SoftDev">
-    <label for="SoftDev">SoftDev</label>
-    <input class="checklist" type="checkbox" id="UI/UX" name="UI/UX" value="UI/UX">
-    <label for="UI/UX">UI/UX</label>
-    <input class="checklist" type="checkbox" id="InfoSec" name="InfoSec" value="InfoSec">
-    <label for="InfoSec">InfoSec</label>
-    <p><button id="send">Submit</button></p>
+  
+          <!-- <i class="fa fa-times-circle remove"></i> -->
+    
+  
+    <div class="container-1">
+        <h2 class="page-head">Post your requests here</h2>
+        <p class="page-head-1">Select the clubs you want to apply for:</p>
+        <h3>Cultural:</h3>
+        <div class="flex-cont-cult">
+          <input class="checklist" type="checkbox" id="Afterdark" name="Afterdark" value="Afterdark">
+          <label for="Afterdark" class="checklist-label">Afterdark</label>
+          <input class="checklist" type="checkbox" id="Crotonia" name="Crotonia" value="Crotonia">
+          <label for="Crotonia" class="checklist-label">Crotonia</label>
+          <input class="checklist" type="checkbox" id="Goonj" name="Goonj" value="Goonj">
+          <label for="Goonj" class="checklist-label">Goonj</label>
+          <input class="checklist" type="checkbox" id="Estrella" name="Estrella" value="Estrella">
+          <label for="Estrella" class="checklist-label">Estrella</label>
+          <input class="checklist" type="checkbox" id="Zephyr" name="Zephyr" value="Zephyr">
+          <label for="Zephyr" class="checklist-label">Zephyr</label>
+          <input class="checklist" type="checkbox" id="Eifer" name="Eifer" value="Eifer">
+          <label for="Eifer" class="checklist-label">Eifer</label>
+          <input class="checklist" type="checkbox" id="ECell" name="ECell" value="ECell">
+          <label for="Eifer" class="checklist-label">ECell</label>
+        </div>
+        <h3 class="page-head-1">Technical:</h3>
+        <div class="flex-cont-cult">
+          <input class="checklist" type="checkbox" id="Competitive Programming" name="CP" value="Competitive Programming">
+          <label for="CP" class="checklist-label">Competitive Programming</label>
+          <input class="checklist" type="checkbox" id="Machine Learning" name="ML" value="Machine Learning">
+          <label for="ML" class="checklist-label">Machine Learning</label>
+          <input class="checklist" type="checkbox" id="SoftDev" name="SoftDev" value="SoftDev">
+          <label for="SoftDev" class="checklist-label">SoftDev</label>
+          <input class="checklist" type="checkbox" id="UI/UX" name="UI/UX" value="UI/UX">
+          <label for="UI/UX" class="checklist-label">UI/UX</label>
+          <input class="checklist" type="checkbox" id="InfoSec" name="InfoSec" value="InfoSec">
+          <label for="InfoSec" class="checklist-label">InfoSec</label>
+        </div>
+        <p><button id="send" class="btn-submit">Submit</button></p>
 
-    <form id="achievements" >
-        <h2>Tell us about your Achievements</h2>
-        <label for="textarea"></label>
-        <textarea name="textarea" id="description"  cols="70" rows="20"></textarea>
-        <!-- <input type="image" src="img_submit.gif"  width="48" height="48"> -->
-        <!-- <button  onclick="document.getElementById('image').click()" id="btn-image"><i class=""><p>image</p></i></button> -->
-        <input type='file' id="image">
-        <p><button type="submit" id="submit-image">Submit Achievement</button></p>
-    </form>
+        <form id="achievements" >
+            <h2>Tell us about your Achievements</h2>
+            <label for="textarea"></label>
+            <textarea name="textarea" id="description"  cols="70" rows="20"></textarea>
+            <br>
+            <br>
+            <!-- <input type="image" src="img_submit.gif"  width="48" height="48"> -->
+            <!-- <button  onclick="document.getElementById('image').click()" id="btn-image"><i class=""><p>image</p></i></button> -->
+            <label class=" btn-label">
+              <input type='file' id="image" class="btn-submit">
+              Upload File
+            </label>
+            <br><br>
+            <p><button type="submit" id="submit-image" class="btn-submit">Submit Achievement</button></p>
+        </form>
+    </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js" ></script>
