@@ -10,9 +10,46 @@
             font-family: 'Open Sans', sans-serif;
 
       }
+      ol, ul
+      {
+        padding-left: 0px;
+      }
       #chat{
         /* background-image: url("oka.jpeg"); */
+        /* margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center; */
+        margin-left: 22%;
       }
+      @media screen and (max-width: 900px)
+      {
+        #chat
+        {
+          margin-left: 27%; ;
+        }
+        .recieved img{
+          max-width: 100%;
+        }
+      }
+      @media screen and (min-width:1000px) {
+          .recieved img{
+            height:500px;
+         }
+        
+      }
+      /* @media screen and (min-width:710px) 
+      {
+          .hamburger
+          {
+            display: none;
+          }
+      } */
+      /* @media screen and (max-width:710px) 
+      {
+        body .wrapper .sidebar{
+          margin-left: -225px;
+      } */
       .first{
         display: flex;
         flex-direction: column;
@@ -25,11 +62,12 @@
       }
       #message-form{
 
-        background-color:rgb(179, 154, 204);
+        background-color:rgb(164, 121, 206);
         padding:20px;
         display: flex;
-        justify-content: flex-end;
-        padding-right: 40px;
+        justify-content: center;
+        border-radius: 5px;
+        margin-bottom: 10px;
 
       }
 
@@ -96,11 +134,12 @@
 
     border-radius: 7px;
     color: #ffffff;
-    background: #514770;
+    background: #371B58;
     padding: 8px 19px 8px 19px;
     text-decoration: none;
     border-radius: 70px;
     margin-right: 10px;
+    border-width: 0px;
 
   }
   #message-form #btn-send :hover{
@@ -128,7 +167,7 @@
         margin-bottom: 15px;
       }
       .recieved img{
-        height: 500px;
+        /* height: 500px; */
         box-shadow: 5px 10px 30px gray;
         background-color:#514770;
         border: 5px solid;
@@ -414,13 +453,17 @@
   {
     width:50px;
     background-color: #371B58;
-    height: 40px;
     border-radius: 50%;
     padding-bottom:7px;
     padding-top: 4px;
     font-size: 12px;
+    border-width:0px;
   }
 
 .inactive{
   display:none;
+}
+.recieved img
+{
+  max-width: 80%;
 }
