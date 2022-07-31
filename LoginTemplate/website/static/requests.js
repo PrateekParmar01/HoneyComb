@@ -113,19 +113,6 @@ actionAdd.addEventListener('click',()=>{
 
 });
 
-actionRemove.addEventListener('click',()=>{
-  console.log('inside remove')
-
-  // selecting folder
-  folder='Remove'
-
-  //making remove active
-  selectClubs.classList.add('inactive');
-  selectAchievements.classList.add('inactive');
-  removeClubs.classList.remove('inactive');
-
-  //fetching remove requests
-});
 
 function fetchRemoveRequests(){
   arr=[];
