@@ -1,4 +1,4 @@
-from website import create_app
+from LoginTemplate.website import create_app
 
 app = create_app()
 
