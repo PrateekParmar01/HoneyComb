@@ -20,13 +20,10 @@ const db = firebase.firestore();
 
 // query selection
 const actionAdd= document.querySelector('#add');
-const actionRemove= document.querySelector('#remove');
 const actionAchieve=document.querySelector('#achieve');
 const selectClubs= document.querySelector('#select-clubs');
-const removeClubs=document.querySelector('#remove-clubs');
 const selectAchievements=document.querySelector('#Achievements');
 let approveAddRequestArray=document.querySelectorAll('.approve-add-request');
-let approveRemoveRequestArray=document.querySelectorAll('.approve-remove-request');
 
 let folder='Add';
 
@@ -106,18 +103,11 @@ actionAdd.addEventListener('click',()=>{
   //making add active
   selectClubs.classList.remove('inactive');
   selectAchievements.classList.add('inactive');
-  removeClubs.classList.add('inactive');
-
   //fetching add requests
   fetchAddRequests();
 
 });
 
-
-function fetchRemoveRequests(){
-  arr=[];
-  let ref= db.collection(`${folder}`);
-}
 
 let fetchAchievements= async function(){
   arr=[];
@@ -132,7 +122,7 @@ let fetchAchievements= async function(){
           description:doc.data().description,
           state:'false'
         }
-        console.log(obj);
+        console.log(doc.data());
         if(!doc.state){
           arr.push(obj);
         }
@@ -159,7 +149,6 @@ actionAchieve.addEventListener('click',async ()=>{
   folder='Achievements';
   // selectClubs.classList.contains()
   selectClubs.classList.add('inactive');
-  removeClubs.classList.add('inactive');
   selectAchievements.classList.remove('inactive');
   await fetchAchievements();
   displayAchievements();
